@@ -1,6 +1,6 @@
 import tweepy
 
-from aux_mod import SettStopwords
+from aux_mod import SettStopwords, TransformToCSV
 from twitter_data_cleaner import TwitterDataCleaner
 
 
@@ -17,6 +17,7 @@ class MyStreamListener(tweepy.StreamListener):
         else:
             messy_data = self.trash.clean(tweet.text)
             print(messy_data)
+            TransformToCSV(messy_data)
 
     def on_error(self, status):
         print("Error detected - Stream")

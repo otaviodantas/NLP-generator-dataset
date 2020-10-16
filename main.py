@@ -1,10 +1,15 @@
 import os
 from dotenv import load_dotenv
 
-from auth import create_api
-from call_stream import calling_stream
+import sys
 
-load_dotenv('config.env')
+sys.path.insert(1, "./all_module/call_stream")
+sys.path.insert(1, "./all_module/auth")
+
+from call_stream import calling_stream
+from auth import create_api
+
+load_dotenv("wordkey.env")
 
 if __name__ == "__main__":
     wordkey = os.getenv("WORDKEY")

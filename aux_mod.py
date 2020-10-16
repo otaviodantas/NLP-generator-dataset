@@ -7,7 +7,7 @@ import csv
 nltk.download("stopwords")
 
 
-def TokenData(data) -> List[str]:
+def TokenData(data: str) -> List[str]:
     token_space = tokenize.WhitespaceTokenizer()
     all_words_token = token_space.tokenize(data)
     return all_words_token

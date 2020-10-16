@@ -16,7 +16,6 @@ class MyStreamListener(tweepy.StreamListener):
             return
         else:
             messy_data = self.trash.clean(tweet.text)
-            print(messy_data)
             TransformToCSV(messy_data)
 
     def on_error(self, status):

@@ -67,7 +67,7 @@ Para poder utilizar a API vocÊ precisa das chaves que são disponibilizadas a p
   --------------------
 ## pip install
 
-Para que baixar todas as bibliotecas utilizadas basta copiar a linha abaixo:
+Para que baixar todas as bibliotecas utilizadas basta copiar a linha abaixo:\
 `pip install tweepy nltk unidecode python-dotenv`
 
 

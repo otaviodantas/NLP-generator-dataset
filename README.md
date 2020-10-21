@@ -33,10 +33,10 @@ Este repositório tem o intuito de gerar um dataset simples, com um conjunto de 
     * remove_emoji
     * remove_hashtag
     * remove_punct
-    
+
 - **config.env**\
   As chaves de acesso da API do twitter e a palavra chave a ser pesquisada, podem ser acessadas por meio desse arquivo.
-  
+
   **O fluxo de software se dá por essa primeira imagem:**
 ![image](https://drive.google.com/uc?export=view&id=1LgeNobP9HVsbWzo8nU0OYU376jcq3WGl)
 ![image](https://drive.google.com/uc?export=view&id=15bgr66RpwSD2ZFTgzWEY4XWDVIbodgcu)
@@ -52,22 +52,27 @@ Para poder utilizar a API vocÊ precisa das chaves que são disponibilizadas a p
 - **Input**
   No arquivo config.env é possível editar a palavra que quer basear seu dataset em WORDKEY.
   As outras variáveis são chaves que são disponibilizadas pela API do Twitter, e são necessárias no processo de autenticação.
-  
+
   `WORDKEY=`
   `CONSUMER_KEY=`
   `CONSUMER_SECRET_KEY=`
-  `ACESS_TOKEN= ACESS_SECRET_TOKEN=` 
+  `ACESS_TOKEN= ACESS_SECRET_TOKEN=`
 
 - **Output**
   O arquivo cria um arquivo CSV e popula o arquivo com os tweets que vão chegando, até que sofra uma interrupção do teclado (Ctrl+C).
-  
-  1 | tweet exemplo 1 
+
+  1 | tweet exemplo 1
   --------------------
   2 | tweet exemplo 2
   --------------------
-  
+## pip install
+
+Para que baixar todas as bibliotecas utilizadas basta copiar a linha abaixo:
+`pip install tweepy nltk unidecode python-dotenv`
+
+
 ## Contribua com o repositório :)
 
-Qualquer tipo de contribuição é bem vinda, desde dicas até pull requests. 
+Qualquer tipo de contribuição é bem vinda, desde dicas até pull requests.
 
 `git clone https://github.com/otaviodantas/NLP-generator-dataset.git`

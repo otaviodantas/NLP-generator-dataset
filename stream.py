@@ -1,21 +1,27 @@
 import tweepy
+import os
+from dotenv import load_dotenv
 
-from aux_mod import SettStopwords, TransformToCSV
+from to_csv import TransformToCSV
 from twitter_data_cleaner import TwitterDataCleaner
 
+load_dotenv("wordkey.env")
+
+def calling_stream(api: tweepy):
+    twitter_listener = MyStreamListener(api)
+    stream = tweepy.Stream(api.auth, twitter_listener)
+    stream.filter(track=[os.getenv("WORDKEY")], languages=["pt"])
 
 class MyStreamListener(tweepy.StreamListener):
-    def __init__(self, api, wordkey):
+    def __init__(self, api):
         self.api = api
-        self.stopword = SettStopwords(wordkey)
-        self.trash = TwitterDataCleaner(self.stopword)
 
     def on_status(self, tweet):
         is_retweed = hasattr(tweet, "retweeted_status")
         if is_retweed:
             return
         else:
-            messy_data = self.trash.clean(tweet.text)
+            messy_data = TwitterDataCleaner(tweet.text)
             TransformToCSV(messy_data)
 
     def on_error(self, status):
